@@ -121,6 +121,9 @@ GitHubのgit-practiceリポジトリにイシューを作成して。
 - `mcp_github_create_issue` が実行される
 - イシューが自動的に作成される
 - 実行結果例: Issue #1 「練習用イシュー」が作成され、URL は https://github.com/KazukiUrano/git-practice/issues/1
+# イシューをMCPで確認する方法：
+# - Cursorに「git-practiceのイシュー一覧を見せて」と依頼すると `mcp_github_list_issues` が実行され、IDE上で一覧が表示される。
+# - 個別の詳細を見たい場合は「Issue #1 を表示して」と依頼すると `mcp_github_get_issue` が実行され内容を確認できる。
 
 ### ステップ4: ブランチで作業
 ```bash

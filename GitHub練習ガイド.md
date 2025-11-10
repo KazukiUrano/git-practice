@@ -4,15 +4,24 @@
 CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動化できます。
 
 ## ✅ Git運用まとめ
-- 課題や改善点があれば GitHub の Issue を作成し、ブランチを切って対応する
+
+**初回設定**
 1. `git init` でフォルダをGit管理下に置く（`.git` が作成される）
 2. `git remote add origin <URL>` でGitHubリポジトリと紐付ける
-3. 変更したファイルを `git add` でステージングし、`git commit` で履歴に保存
-4. `git push` でGitHubに送信してローカルとクラウドを同期
+3. 初回の変更を `git add` → `git commit` → `git push` でGitHubへ送信
 
-> **チーム開発の基本**: 作業を始める前に `git switch main` → `git pull origin main` でローカルを最新化してからブランチを切り、作業を進める。
+**開発サイクル（Issue起点）**
+1. 課題や改善点をGitHubのIssueとして作成し、対応方針をまとめる
+2. `git switch main` → `git pull origin main` で最新状態を取得
+3. `git checkout -b feature/issue-番号-内容` などの名前でブランチを作成
+4. ブランチで作業・テストを行い、`git add` → `git commit` で履歴に保存
+5. `git push -u origin <ブランチ名>` でGitHubへ送信
+6. プルリクエストを作成し、レビューを経てマージ（Issueをクローズ）
+7. `git switch main` → `git pull origin main` でマージ結果をローカルに反映
+8. 役目を終えたブランチを削除（`git branch -d` / `git push origin --delete`）
 
 ## 🎯 GitHubでできること
+
 
 ### 1. リポジトリの管理
 - コードの保存・共有

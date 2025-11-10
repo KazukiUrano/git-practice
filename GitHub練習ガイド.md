@@ -4,7 +4,7 @@
 CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動化できます。
 
 <details>
-<summary><h2>✅ Git運用まとめ</h2></summary>
+<summary>✅ Git運用まとめ</summary>
 
 **初回設定**
 1. `git init` でフォルダをGit管理下に置く（`.git` が作成される）
@@ -47,7 +47,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><h2>🎯 GitHubでできること</h2></summary>
+<summary>🎯 GitHubでできること</summary>
 
 
 ### 1. リポジトリの管理
@@ -73,7 +73,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><h2>📋 練習ステップ（MCP使用版）</h2></summary>
+<summary>📋 練習ステップ（MCP使用版）</summary>
 
 ### ステップ1: GitHubでリポジトリを作成（MCP使用）
 CursorでAIに以下のように依頼：
@@ -276,7 +276,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>🔄 よくあるワークフロー（MCP使用版）</h2></summary>
+<summary>🔄 よくあるワークフロー（MCP使用版）</summary>
 
 ### 機能追加の流れ
 1. **イシューを作成（MCP）**
@@ -343,7 +343,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>💡 MCPでできる便利な操作</h2></summary>
+<summary>💡 MCPでできる便利な操作</summary>
 
 ### リポジトリ操作
 - **リポジトリの作成**: `mcp_github_create_repository`
@@ -371,7 +371,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>コンフリクトとは</h2></summary>
+<summary>コンフリクトとは</summary>
 
 - 複数の変更が同じファイル・同じ位置に重なり、Gitが自動で統合できない状態。
 - 例：メインブランチの行と作業ブランチの同じ行がそれぞれ異なる内容に書き換えられている。
@@ -382,7 +382,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>CI/CDパイプラインとは</h2></summary>
+<summary>CI/CDパイプラインとは</summary>
 
 - **継続的インテグレーション (CI)**: 小さな変更を頻繁にリポジトリへ取り込み、自動テストで品質を保つ仕組み。
 - **継続的デリバリー/デプロイ (CD)**: CI後の成果物を本番または本番手前の環境へ自動的に届ける流れ。
@@ -393,7 +393,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>🎯 MCPを使うメリット</h2></summary>
+<summary>🎯 MCPを使うメリット</summary>
 
 1. **コマンド不要**: ターミナルでGitコマンドを覚える必要がない
 2. **自動化**: AIに依頼するだけで操作が完了
@@ -403,7 +403,7 @@ GitHubのgit-practiceリポジトリに「練習用ファイル.txt」を作成�
 </details>
 
 <details>
-<summary><h2>🎓 次のステップ</h2></summary>
+<summary>🎓 次のステップ</summary>
 
 1. **コラボレーション**
    - 他の人と一緒に作業

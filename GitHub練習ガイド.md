@@ -90,9 +90,14 @@ git commit -m "初回コミット: 練習プロジェクトの作成"
 # → 6ファイルがコミットされ、390行が追加されたことを示す
 
 # ブランチ名をmainに変更
+# 以前は初期ブランチ名が "master" の場合があったため、そのときに `git branch -M main` を実行して "main" に統一した。
+# 現在のGitでは最初から "main" になっていることが多いので、`git status` の表示で `On branch main` と出ていれば実行不要。
 git branch -M main
 
 # 最初のプッシュ
+# `git push -u origin main` でローカルのコミットをGitHubへ送信する。
+# - `-u` を付けると次回以降 `git push` だけで同じリモートに送信できる。
+# ネットワークや証明書の問題が出た場合は、再試行や権限設定が必要になることがある。
 git push -u origin main
 ```
 

@@ -31,7 +31,17 @@ flowchart TD
     G --> H[レビュー&マージ]
     H --> I[mainで`pull`]
     I --> J[不要ブランチを削除]
+
+    classDef humanNode fill:#dbe9ff,stroke:#4a7bd8,color:#1b3c8d
+    classDef mcpNode fill:#d4f5d0,stroke:#3c9b4f,color:#1e5122
+    classDef githubNode fill:#ffe7c2,stroke:#d48a1f,color:#8a5408
+
+    class A mcpNode
+    class B,C,D,E,F,I,J humanNode
+    class G mcpNode
+    class H githubNode
 ```
+> 色分け: 青=ローカルで人が操作、緑=MCPで自動操作、橙=GitHub上で実施する作業
 
 
 ## 🎯 GitHubでできること

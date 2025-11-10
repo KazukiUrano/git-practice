@@ -121,27 +121,41 @@ GitHubのgit-practiceリポジトリにイシューを作成して。
 - `mcp_github_create_issue` が実行される
 - イシューが自動的に作成される
 - 実行結果例: Issue #1 「練習用イシュー」が作成され、URL は https://github.com/KazukiUrano/git-practice/issues/1
-# イシューをMCPで確認する方法：
-# - Cursorに「git-practiceのイシュー一覧を見せて」と依頼すると `mcp_github_list_issues` が実行され、IDE上で一覧が表示される。
-# - 個別の詳細を見たい場合は「Issue #1 を表示して」と依頼すると `mcp_github_get_issue` が実行され内容を確認できる。
+**イシューをMCPで確認する方法**
+
+- Cursorに「git-practiceのイシュー一覧を見せて」と依頼 → `mcp_github_list_issues` で一覧を取得
+- Cursorに「Issue #1 を表示して」と依頼 → `mcp_github_get_issue` で詳細を確認
 
 ### ステップ4: ブランチで作業
-```bash
-# 新しいブランチを作成
-git checkout -b feature/新機能
 
-# ファイルを編集
+**練習シナリオ（Issue #1「練習用イシュー」）**
+1. ブランチ名を決める（例: `feature/issue-1-practice`）。イシュー番号を含めると分かりやすい。
+2. 新しいブランチを作成し、同時に切り替える。
+3. ブランチ上でファイルを編集する。
+4. 変更をステージングし、コミットメッセージにイシュー番号を含める（例: `#1 ガイドにブランチ練習メモを追記`）。
+5. ブランチをリモートへプッシュする。
+
+```bash
+# ブランチを作成して切り替え
+cd Git練習
+git checkout -b feature/issue-1-practice
+
 # （エディタでファイルを編集）
 
 # 変更をステージング
 git add .
 
-# コミット
-git commit -m "新機能を追加"
+# コミット（例）
+git commit -m "#1 ブランチ練習メモを追記"
 
-# ブランチをプッシュ
-git push origin feature/新機能
+# ブランチをリモートへプッシュ
+git push -u origin feature/issue-1-practice
 ```
+
+> コツ: 作業が終わったら `git switch main` でメインブランチに戻り、必要に応じて `git pull` で最新化する。
+>
+> 実践ログ (2025-11-10): `feature/issue-1-practice` ブランチを作成して作業を開始。
+> 注意: まだ新しいコミットを作成していない場合、Git Graph では `main` と同じ位置にブランチ名が並び、分岐は表示されません。作業ブランチで最初のコミットを行うとグラフが分岐します。
 
 ### ステップ5: プルリクエストを作成（MCP使用）
 CursorでAIに以下のように依頼：

@@ -58,13 +58,36 @@ git remote add origin https://github.com/KazukiUrano/git-practice.git
 # 確認コマンド: git remote -v で設定を確認できる
 
 # ファイルをステージング
-# VS Codeなどでファイル名の左に表示される "U" は "Untracked" の略。
-# → Gitがまだ追跡していない新規ファイルを意味する。
-# `git add` を実行し、追跡対象にすると "A"（Added）や "M"（Modified）などに変わる。
+# VS Codeなどでファイル名の左に表示される記号の意味：
+# - "U" (Untracked): Gitがまだ追跡していない新規ファイル
+# - "A" (Added): 新しく追加されたファイルで、ステージングされている状態
+#   → 例: .gitignore, README.md, 練習ファイル1.txt, 練習ファイル2.md
+# - "M" (Modified): 既存のファイルが変更され、ステージングされている状態
+#   → 例: GitHub練習ガイド.md（既存ファイルを編集してステージングした場合）
+#   注意：コミット後にさらにファイルを編集すると、新しい変更が「M」として表示される
+#   これは「ステージングされていない変更」を意味する。再度`git add`が必要。
+# `git add` を実行すると "U" が "A" や "M" に変わる。
+# `git add .` はカレントディレクトリ配下のすべての変更をステージングする。
+# 実行前に `git status --short` を見ると `??` （= Untracked）が並ぶ。
+# `git add .` 実行後、再度 `git status --short` を見ると `A` や `M` に変わり、ステージ済みと分かる。
 git add .
+# 実行後は `git status --short` で `A` 表示が並ぶ。
+# 実際の結果例：
+# A  .cursor/rules/git_practice.md
+# A  .gitignore
+# A  GitHub練習ガイド.md
+# A  README.md
+# A  練習ファイル1.txt
+# A  練習ファイル2.md
 
 # 最初のコミット
+# コミットとは：ステージングした変更を「この時点の状態を記録する」と確定する操作
+# `git commit -m "メッセージ"` で実行。メッセージは「何を変更したか」を簡潔に書く
 git commit -m "初回コミット: 練習プロジェクトの作成"
+# 実行結果例：
+# [main (root-commit) 68ef98b] 初回コミット: 練習プロジェクトの作成
+#  6 files changed, 390 insertions(+)
+# → 6ファイルがコミットされ、390行が追加されたことを示す
 
 # ブランチ名をmainに変更
 git branch -M main

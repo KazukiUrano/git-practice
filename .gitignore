@@ -1,0 +1,20 @@
+# Git練習用の.gitignore
+
+# 一時ファイル
+*.tmp
+*.temp
+*.log
+
+# OS固有のファイル
+.DS_Store
+Thumbs.db
+
+# エディタ固有のファイル
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 練習用の一時フォルダー
+練習用_削除OK/
+

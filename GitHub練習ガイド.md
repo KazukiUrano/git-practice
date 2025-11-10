@@ -20,6 +20,20 @@ CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動
 7. `git switch main` → `git pull origin main` でマージ結果をローカルに反映
 8. 役目を終えたブランチを削除（`git branch -d` / `git push origin --delete`）
 
+```mermaid
+flowchart TD
+    A[Issue作成] --> B[最新状態を取得<br>`pull`]
+    B --> C[ブランチ作成<br>`checkout -b`]
+    C --> D[実装・テスト]
+    D --> E[ステージング&コミット]
+    E --> F[ブランチをプッシュ<br>`push -u origin`]
+    F --> G[プルリクエスト作成]
+    G --> H[レビュー&マージ]
+    H --> I[mainで`pull`]
+    I --> J[不要ブランチを削除]
+```
+
+
 ## 🎯 GitHubでできること
 
 

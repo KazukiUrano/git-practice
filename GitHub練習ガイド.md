@@ -4,6 +4,7 @@
 CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動化できます。
 
 ## ✅ Git運用まとめ
+- 課題や改善点があれば GitHub の Issue を作成し、ブランチを切って対応する
 1. `git init` でフォルダをGit管理下に置く（`.git` が作成される）
 2. `git remote add origin <URL>` でGitHubリポジトリと紐付ける
 3. 変更したファイルを `git add` でステージングし、`git commit` で履歴に保存

@@ -9,6 +9,8 @@ CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動
 3. 変更したファイルを `git add` でステージングし、`git commit` で履歴に保存
 4. `git push` でGitHubに送信してローカルとクラウドを同期
 
+> **チーム開発の基本**: 作業を始める前に `git switch main` → `git pull origin main` でローカルを最新化してからブランチを切り、作業を進める。
+
 ## 🎯 GitHubでできること
 
 ### 1. リポジトリの管理

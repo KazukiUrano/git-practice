@@ -3,8 +3,7 @@
 このガイドでは、**GitHub MCP**を使ってGitHubの操作を練習しながら学べます。
 CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動化できます。
 
-<details>
-<summary>✅ Git運用まとめ</summary>
+### ✅ Git運用まとめ（基本フロー）
 
 **初回設定**
 1. `git init` でフォルダをGit管理下に置く（`.git` が作成される）
@@ -22,13 +21,13 @@ CursorのAIアシスタントに依頼するだけで、GitHubの操作が自動
 8. 役目を終えたブランチを削除（`git branch -d` / `git push origin --delete`）
 
 ```mermaid
-flowchart TD
+graph TD
     A[Issue作成] --> B[最新状態を取得<br>`pull`]
     B --> C[ブランチ作成<br>`checkout -b`]
     C --> D[実装・テスト]
     D --> E[ステージング&コミット]
     E --> F[ブランチをプッシュ<br>`push -u origin`]
-    F --> G[プルリクエスト作成]
+    F --> G[GitHubリポジトリ上の<br>プルリクエスト]
     G --> H[レビュー&マージ]
     H --> I[mainで`pull`]
     I --> J[不要ブランチを削除]
@@ -38,13 +37,57 @@ flowchart TD
     classDef githubNode fill:#ffe7c2,stroke:#d48a1f,color:#8a5408
 
     class A mcpNode
-    class B,C,D,E,F,I,J humanNode
-    class G mcpNode
-    class H githubNode
+    class B,C,D,E,I,J humanNode
+    class F,G,H githubNode
 ```
 > 色分け: 青=ローカルで人が操作、緑=MCPで自動操作、橙=GitHub上で実施する作業
 
-</details>
+---
+
+### 🤝 チーム運用まとめ（リアルイベント例）
+
+リアルイベント用フォルダーをGitHubの「リアルイベント」リポジトリで管理すると、「アイデア共有→確認→反映→活用」の流れを安全に繰り返せます。Git未経験のメンバーにも伝わるよう、役割を分けて整理しました。
+
+**リポジトリ（GitHub上）**
+- `リアルイベント/` フォルダー一式を置く場所。プルリクエストもここに溜まる。
+- 承認済みの最新ファイル（メインブランチ）と過去イベント資料の履歴が保存される。
+
+**各メンバーのローカル環境**
+- 一度 `pull` すると、最新ファイルだけでなく過去イベント資料も手元にダウンロードされる。
+- AI分析やレポート作成はローカルのファイルを材料に実行できる（例：効果測定レポート生成スクリプト）。
+
+**具体的な流れ**
+1. まず全員が `git pull` して最新と過去の資料一式をローカルに持つ。
+2. 新しいアイデアがあるメンバーは `feature/配信スケジュール案` のようなブランチを作り、ローカルで `イベント概要.md` や `配信スケジュール案.xlsx` を編集。
+3. 編集内容をGitHub上の「リアルイベント」リポジトリへプッシュし、そこでプルリクエストを作成。レビューと議論もGitHub上で完結。
+4. 承認後にメインブランチへマージ。各メンバーが `pull` すれば最新資料が揃い、AI分析も最新データを元に実行できる。
+5. 過去のイベント資料は常に履歴として残り、必要に応じてローカルでAIに読み込ませて次回施策に再利用できる。
+
+```mermaid
+flowchart LR
+    subgraph Repo[GitHub「リアルイベント」リポジトリ]
+        Main[メインブランチ<br>最新資料]
+        PRs[プルリクエスト<br>レビュー履歴]
+        History[過去イベント資料<br>（バージョン管理）]
+    end
+
+    MemberA[メンバーA ローカル] -->|pull| Main
+    MemberB[メンバーB ローカル] -->|pull| Main
+    History -->|pullで取得| MemberA
+    History -->|pullで取得| MemberB
+
+    MemberA -->|branch作成・編集| Draft[配信スケジュール案<br>イベント概要ファイル]
+    Draft -->|push| Repo
+    Repo -->|プルリク作成| PRs
+    PRs -->|レビュー&承認| Main
+    Main -->|pull| MemberB
+
+    MemberB -->|ローカルAI分析| AIReport[効果測定レポート生成]
+    AIReport -->|結果を追加| History
+    History -->|次回イベントで再利用| MemberA
+```
+
+---
 
 <details>
 <summary>🎯 GitHubでできること</summary>
